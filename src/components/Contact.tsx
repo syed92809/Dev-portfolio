@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import { Mail, SendIcon, CheckCircle } from "lucide-react";
+import { Mail, SendIcon, CheckCircle, PhoneCall } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -24,7 +23,9 @@ const Contact = () => {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -32,7 +33,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -41,7 +42,7 @@ const Contact = () => {
         title: "Message sent successfully",
         description: "I'll get back to you as soon as possible!",
       });
-      
+
       // Reset form after delay
       setTimeout(() => {
         setIsSubmitted(false);
@@ -54,7 +55,10 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-accent/30">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div
+            className="max-w-xl animate-fade-in"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="inline-block">
               <div className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-4">
                 Get In Touch
@@ -62,27 +66,44 @@ const Contact = () => {
             </div>
             <h2 className="mb-6">Let's Work Together</h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Interested in collaborating on a project? Have a question about my work? 
-              Feel free to reach out and I'll get back to you as soon as possible.
+              Interested in collaborating on a project? Have a question about my
+              work? Feel free to reach out and I'll get back to you as soon as
+              possible.
             </p>
-            
+
             <div className="flex items-center gap-4 mb-8">
               <div className="p-3 rounded-full bg-primary/10 text-primary">
                 <Mail className="h-6 w-6" />
               </div>
               <div>
                 <div className="text-sm text-muted-foreground">Email</div>
-                <a 
-                  href="mailto:contact@example.com" 
+                <a
+                  href="mailto:contact@example.com"
                   className="font-medium hover:text-primary transition-standard"
                 >
-                  contact@example.com
+                  syed92809@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 rounded-full bg-primary/10 text-primary">
+                <PhoneCall className="h-6 w-6" />
+              </div>
+              <div>
+                <div className="text-sm text-muted-foreground">Phone</div>
+                <a className="font-medium hover:text-primary transition-standard">
+                  +92-3166191367
                 </a>
               </div>
             </div>
           </div>
-          
-          <div className="w-full max-w-md mx-auto animate-slide-up" style={{ animationDelay: "0.4s" }}>
+
+          <div
+            className="w-full max-w-md mx-auto animate-slide-up"
+            style={{ animationDelay: "0.4s" }}
+          >
             <Card className="border shadow-sm">
               <CardHeader>
                 <CardTitle>Send Message</CardTitle>
@@ -127,7 +148,7 @@ const Contact = () => {
                       disabled={isSubmitting || isSubmitted}
                     />
                   </div>
-                  
+
                   <Button
                     type="submit"
                     className={cn(

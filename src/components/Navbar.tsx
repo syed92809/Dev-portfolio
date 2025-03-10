@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -42,7 +41,7 @@ const Navbar = () => {
       )}
     >
       <div className="container max-w-7xl mx-auto px-4 flex items-center justify-between">
-        <a 
+        <a
           href="#"
           className="font-medium text-xl tracking-tight hover:opacity-80 transition-standard"
           onClick={(e) => {
@@ -50,7 +49,7 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <span className="text-primary">Dev</span>Portfolio
+          <span className="text-primary">Syed </span>Faizan Ali
         </a>
 
         {/* Desktop Navigation */}
@@ -64,7 +63,7 @@ const Navbar = () => {
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
           ))}
-          
+
           <Button
             onClick={() => scrollToSection("contact")}
             className="bg-primary text-white rounded-full px-6 hover:translate-y-[-2px] hover:shadow-md transition-standard"
@@ -96,10 +95,12 @@ const Navbar = () => {
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className={cn(
-          "flex flex-col items-center justify-center space-y-8 h-full transition-all duration-500 transform",
-          mobileMenuOpen ? "translate-y-0" : "translate-y-10"
-        )}>
+        <div
+          className={cn(
+            "flex flex-col items-center justify-center space-y-8 h-full transition-all duration-500 transform",
+            mobileMenuOpen ? "translate-y-0" : "translate-y-10"
+          )}
+        >
           {["projects", "skills", "contact"].map((item) => (
             <button
               key={item}
@@ -109,7 +110,7 @@ const Navbar = () => {
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
           ))}
-          
+
           <Button
             onClick={() => scrollToSection("contact")}
             className="bg-primary text-white rounded-full px-8 py-6 mt-4 hover:translate-y-[-2px] hover:shadow-md transition-standard"

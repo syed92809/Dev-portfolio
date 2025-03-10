@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +9,7 @@ import {
   Lock,
   BarChart,
   Layers,
-  GitBranch
+  GitBranch,
 } from "lucide-react";
 
 interface SkillCategory {
@@ -23,47 +22,72 @@ const skillsData: SkillCategory[] = [
   {
     name: "Programming Languages",
     icon: <Code className="h-6 w-6" />,
-    skills: ["JavaScript", "TypeScript", "Python", "Golang", "Java", "PHP", "Rust", "C#"]
+    skills: ["JavaScript", "TypeScript", "Python", "PHP", "Java"],
   },
   {
     name: "Database Technologies",
     icon: <Database className="h-6 w-6" />,
-    skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Elasticsearch", "DynamoDB", "Firebase", "Cassandra"]
+    skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Supabase", "Firebase"],
   },
   {
     name: "Backend Frameworks",
     icon: <Server className="h-6 w-6" />,
-    skills: ["Node.js/Express", "Django", "Spring Boot", "Laravel", "ASP.NET Core", "FastAPI", "NestJS", "Ruby on Rails"]
+    skills: ["Node.js/Express", "Flask", "FastAPI", "NestJS"],
   },
   {
     name: "Cloud & DevOps",
     icon: <Cloud className="h-6 w-6" />,
-    skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "Google Cloud", "Azure", "Serverless"]
+    skills: [
+      "AWS",
+      "Docker",
+      "CI/CD",
+      "ECS",
+      "ECR",
+      "Load-balancing",
+      "Render",
+    ],
   },
   {
     name: "Security & Authentication",
     icon: <Lock className="h-6 w-6" />,
-    skills: ["OAuth", "JWT", "HTTPS/TLS", "API Security", "Auth0", "Role-Based Access Control", "SSO", "Encryption"]
+    skills: [
+      "OAuth",
+      "JWT",
+      "HTTPS/TLS",
+      "API Security",
+      "Auth0",
+      "Role-Based Access Control",
+      "SSO",
+      "Encryption",
+    ],
   },
   {
     name: "API Design & Architecture",
     icon: <Layers className="h-6 w-6" />,
-    skills: ["RESTful APIs", "GraphQL", "Microservices", "gRPC", "WebSockets", "Swagger/OpenAPI", "API Gateway", "Event-Driven"]
+    skills: [
+      "RESTful APIs",
+      "Microservices",
+      "WebSockets",
+      "API Gateway",
+      "Event-Driven",
+    ],
   },
   {
     name: "Testing & Quality",
     icon: <BarChart className="h-6 w-6" />,
-    skills: ["Unit Testing", "Integration Testing", "Jest", "Mocha", "Postman", "Load Testing", "Mocking", "TDD"]
+    skills: ["Unit Testing", "Integration Testing", "Jest", "Postman"],
   },
   {
     name: "Version Control & Collaboration",
     icon: <GitBranch className="h-6 w-6" />,
-    skills: ["Git", "GitHub", "GitLab", "Bitbucket", "Code Review", "Agile", "Jira", "Documentation"]
-  }
+    skills: ["Git", "GitHub", "GitLab", "Code Review", "Jira", "Documentation"],
+  },
 ];
 
 const Skills = () => {
-  const [visibleCategories, setVisibleCategories] = useState<SkillCategory[]>([]);
+  const [visibleCategories, setVisibleCategories] = useState<SkillCategory[]>(
+    []
+  );
   const containerRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -77,7 +101,7 @@ const Skills = () => {
         }
       }
     };
-    
+
     showCategories();
   }, [isInView]);
 
@@ -106,9 +130,13 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden" ref={containerRef}>
+    <section
+      id="skills"
+      className="py-24 relative overflow-hidden"
+      ref={containerRef}
+    >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_35%_at_60%_30%,hsl(var(--primary)/0.1),transparent)]" />
-      
+
       <div className="section-container">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="inline-block">
@@ -118,7 +146,8 @@ const Skills = () => {
           </div>
           <h2 className="mb-4">Technical Skills</h2>
           <p className="text-muted-foreground text-lg">
-            A comprehensive look at my technical toolkit and proficiencies in backend development.
+            A comprehensive look at my technical toolkit and proficiencies in
+            backend development.
           </p>
         </div>
 
@@ -138,7 +167,7 @@ const Skills = () => {
                 </div>
                 <h3 className="text-lg font-medium">{category.name}</h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <Badge

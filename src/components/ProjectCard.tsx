@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -49,11 +48,9 @@ const ProjectCard = ({
 
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-medium mb-2">{title}</h3>
-        
-        <p className="text-muted-foreground mb-4 flex-grow">
-          {description}
-        </p>
-        
+
+        <p className="text-muted-foreground mb-4 flex-grow">{description}</p>
+
         <div className="flex flex-wrap gap-2 mb-4">
           {techStack.map((tech) => (
             <Badge
@@ -65,17 +62,19 @@ const ProjectCard = ({
             </Badge>
           ))}
         </div>
-        
+
         <div className="flex gap-3 mt-auto">
-          <Button
-            variant="outline"
-            size="sm"
-            className="rounded-full flex items-center gap-2 hover:bg-accent hover:text-accent-foreground transition-standard"
-            onClick={() => window.open(githubUrl, "_blank")}
-          >
-            <Github className="h-4 w-4" />
-            <span>Code</span>
-          </Button>
+          {githubUrl && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full flex items-center gap-2 hover:bg-accent hover:text-accent-foreground transition-standard"
+              onClick={() => window.open(githubUrl, "_blank")}
+            >
+              <Github className="h-4 w-4" />
+              <span>Code</span>
+            </Button>
+          )}
 
           {liveUrl && (
             <Button
