@@ -6,6 +6,7 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FullStackProject from "@/components/FullStackProject";
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,6 +25,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <FullStackProject />
         <Projects />
         <Skills />
         <Contact />
