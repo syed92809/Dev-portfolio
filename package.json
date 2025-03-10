@@ -10,7 +10,6 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "homepage": "https://syed92809.github.io/Dev-portfolio",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
